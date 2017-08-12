@@ -1,18 +1,42 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
+const mongoose = require("mongoose");
+
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+
+const User = require("./models/user.js");
+
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 
-app.get('', (req, resp) => {
-    resp.sendFile(__dirname + path.join('/index.html'));
+mongoose.Promise = Promise;
+
+mongoose.connect("mongodb://localhost/cour");
+var db = mongoose.connection;
+
+db.on("error", function(error) {
+	console.log("Mongoose Error: " + error);
+});
+
+db.once("open", function() {
+	console.log("Mongoose connection successful.");
+});
+
+
+app.get('*', (req, resp) => {
+    resp.sendFile(__dirname + path.join('/public/index.html'));
 })
 
 
