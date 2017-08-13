@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import GoingOut from './GoingOut';
+import GoingOut from './Out';
 import NavBar from './NavBar';
-import StayingIn from './StayingIn';
+import StayingIn from './In';
 
 
 export default class Main extends Component {

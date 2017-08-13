@@ -1,9 +1,13 @@
 import React, {Component} from 'react';
+import {hashHistory} from 'react-router';
 
 
 export default class HomePage extends Component{
     constructor(){
         super();
+    }
+    hanldeClick(){
+      hashHistory.push('out-or-in');
     }
     render(){
         return(
@@ -12,9 +16,9 @@ export default class HomePage extends Component{
 	      <img src="./assets/css/Images/CourIcon.svg" alt="cour icon" id="cour-icon"/>
           <h3 id="panel-h3">Dating for 
             <span>
-              <a type="button" className="btn" id="today-btn" href="secondPage.html">Today</a>
+              <a type="button" onClick={this.hanldeClick} className="btn" id="today-btn" href="secondPage.html">Today</a>
             </span>
-          </h3>
+           </h3>
         </div>
         )
     }

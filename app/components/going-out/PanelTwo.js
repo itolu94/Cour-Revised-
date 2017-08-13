@@ -7,6 +7,7 @@ export default class PanelTwo extends Component {
         super();
     }
     render(){
+        const display = {'display': 'none'}
         return(
              <div className="col-lg-6">
                 <div className="panel panel-default panel-going-out">
@@ -26,7 +27,7 @@ export default class PanelTwo extends Component {
                                 <h1 className="col-lg-12">Theater</h1>
                             </div>
                         </div>
-                        <div className="col-lg-12 search2">
+                        <div style={display} className="col-lg-12 search2">
                             <form role="form">
                                 <div className="form-group">
                                     <label for="name-input" id="name-inputSG">Zip Code</label>
@@ -46,7 +47,7 @@ export default class PanelTwo extends Component {
                         </div>
                         <div className="col-lg-12 seatGeeksAPI">
                         </div>
-                        <div id="google-button-container">
+                        <div style={display} id="google-button-container">
                           <button className="btn btn-default" id="back-btn-google" type="submit">Back</button>
                         </div>
                     </div>

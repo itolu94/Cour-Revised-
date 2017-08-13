@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import ReactCSSTransitionGropu from 'react-addons-css-transition-group';
 
 
 
@@ -7,6 +8,7 @@ export default class PanelOne extends Component {
         super();
     }
     render(){
+        const display = {'display': 'none'}
         return(
             <div className="col-lg-6">
                 <div className="panel panel-default panel-going-out">
@@ -29,7 +31,7 @@ export default class PanelOne extends Component {
                                 <h1 className="col-lg-12">Museum</h1>
                             </div>
                         </div>
-                        <div className="col-lg-12" id="panel1-results">
+                        <div style={display} className="col-lg-12" id="panel1-results">
                             <div className="col-lg-12 search">
                                 <form role="form">
                                     <div className="form-group">
@@ -41,6 +43,7 @@ export default class PanelOne extends Component {
                                 <button className="btn btn-default" id="back-btn-panel1" type="submit">Back</button>
                             </div>
                         </div>
+
                         <div className="col-lg-12 googleMapsAPI">
                             <div id="map">
                             </div>
