@@ -65,15 +65,14 @@ body {
   height: 300px;
 }
 
-#home-icon {
-  width: 300px;
+.home-and-city-icon {
   height: 300px;
+  display: block;
+  margin: auto;
+  width: 40%;
 }
 
-#city-icon {
-  width: 300px;
-  height: 300px;
-}
+
 
 #panel-h3 {
   font-size: 90px;
@@ -92,14 +91,14 @@ body {
   color: #F58CAC;
 }
 
-.dog {
+/* .dog {
   width: 100%;
   padding-right: inherit;
   position: relative;
   top: -100px;
   background-color: transparent;
   z-index: 1
-}
+} */
 
 .hidden-header {
   z-index: 3;
@@ -135,7 +134,7 @@ body {
 .collums {
   position: relative;
   bottom: -5px;
-  top: -190.5157px;
+  /* top: -190.5157px; */
 }
 
 
@@ -204,6 +203,10 @@ a{ color: #F58CAC;}
 
 #going-out-content {
   margin: 40px 20px;
+}
+
+.panel-body{
+  margin-top: 12%;
 }
 
 .panel-going-out {
