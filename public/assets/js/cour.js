@@ -199,15 +199,15 @@ function createMarker(place) {
 
 
 // Initialize Firebase
-var config = {
-    apiKey: "AIzaSyDUuTEo0pNuJ489UnVdRUqFEL3FQqMdK9I",
-    authDomain: "my-awesome-project-487ee.firebaseapp.com",
-    databaseURL: "https://my-awesome-project-487ee.firebaseio.com",
-    projectId: "my-awesome-project-487ee",
-    storageBucket: "my-awesome-project-487ee.appspot.com",
-    messagingSenderId: "693219172838"
-};
-firebase.initializeApp(config);
+// var config = {
+//     apiKey: "AIzaSyDUuTEo0pNuJ489UnVdRUqFEL3FQqMdK9I",
+//     authDomain: "my-awesome-project-487ee.firebaseapp.com",
+//     databaseURL: "https://my-awesome-project-487ee.firebaseio.com",
+//     projectId: "my-awesome-project-487ee",
+//     storageBucket: "my-awesome-project-487ee.appspot.com",
+//     messagingSenderId: "693219172838"
+// };
+// firebase.initializeApp(config);
 
 // $('#add-infoAboutMe').on('click', function() {
 //     event.preventDefault();
@@ -330,10 +330,4 @@ $('.Play-click').on('click', function() {
 });
 
 
-function AppViewModel() {
-    this.cooking = ko.observable("Cooking");
-    this.cocktails = ko.observable("Cocktails");
-    this.dessert = ko.observable("Dessert");
-}
-ko.applyBindings(new AppViewModel());
 
