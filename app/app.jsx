@@ -1,8 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom';
-import HomePage from './components/home-page/HomePage';
-import Main from  './components/out-or-in/OutOrIn';
-import GoingOutComponent from './components/going-out/GoingOutComponent';
-import StayingInPage from './components/staying-in-page/StayingInPage';
+import {Router, Route, hashHistory, IndexRoute} from 'react-router';
+// import HomePage from './components/home-page/HomePage';
+// import Main from  './components/out-or-in/OutOrIn';
+import GoingOut from './components/going-out/GoingOut';
+// import StayingInPage from './components/staying-in-page/StayingInPage';
+import router from './config/routes';
 
-ReactDOM.render(<StayingInPage />, document.getElementById('app'))
+ReactDOM.render(<Router history={hashHistory} routes={router}> </Router>, document.getElementById('app'))

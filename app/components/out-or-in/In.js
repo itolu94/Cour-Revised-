@@ -1,15 +1,18 @@
 import React, {Component} from 'react';
-
+import {hashHistory} from 'react-router';
 
 export default class StayingIn extends Component{
     constructor(){
         super();
     }
+    stayingInClick(){
+      hashHistory.push('staying-in');
+    }
     render(){
         return(
       <div className="col-lg-6">
       <div className="panel panel-default panel-going-out">
-          <a href="StayingInPg1.html">
+          <a onClick={this.stayingInClick}>
             <div className="panel-body">
               <h1 className="col-lg-12 row-null">invisible</h1>
               <div className="col-lg-offset-12"><img src="./assets/css/Images/CocktailIcon.svg" alt="cocktail icon" className="category-icon row-null" /></div>
