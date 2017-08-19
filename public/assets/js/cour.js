@@ -103,7 +103,7 @@ $("#back-btn-seatGeek").click(function() {
 
 // var used for googleMapsAPI
 var map;
-var location
+var location;
 var infowindow;
 var zipcode = {
     lat: 35.9132,

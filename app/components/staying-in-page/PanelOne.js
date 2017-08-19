@@ -4,6 +4,9 @@ export default class PanelOne extends Component{
     constructor(){
         super();
     }
+    yelpSearch(){
+
+    }
     render(){
         return(
             <div className="col-lg-6 first-info-panel">

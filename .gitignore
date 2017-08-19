@@ -58,6 +58,8 @@ typings/
 .env
 
 # ignore bundle file 
-
 public/bundle.js
 
+
+# ignore Yelp API credentials 
+public/secrets.js

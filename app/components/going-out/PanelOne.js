@@ -6,15 +6,28 @@ import ReactCSSTransitionGropu from 'react-addons-css-transition-group';
 export default class PanelOne extends Component {
     constructor() {
         super();
+        this.state = {
+            displaySearch: 'none',
+            displayActivities: 'inline',
+            activity: 'coffee' 
+        }
+        this.setState = this.setState.bind(this);
     }
+    setActivity(newActivity){
+     this.setState({activity: activity})
+    }
+    // yelpSearch(){
+
+    // }
     render(){
-        const display = {'display': 'none'}
+        const display = {'display': this.state.displaySearch}
+        const displayActivity = {'display': this.state.displayActivities}
         return(
             <div className="col-lg-6">
                 <div className="panel panel-default panel-going-out">
                     <div className="panel-body">
                         <div id="first-info-panel1">
-                            <div className="category rounded-top col-lg-12 left-side-click" id="coffee-click">
+                            <div  className="category rounded-top col-lg-12 left-side-click" id="coffee-click">
                                 <div className="col-lg-offset-4 col-lg-1"><img src="assets/css/Images/CoffeeIcon.svg" alt="coffee icon" className="category-icon" /></div>
                                 <h1 className="col-lg-12">Coffee</h1>
                             </div>
