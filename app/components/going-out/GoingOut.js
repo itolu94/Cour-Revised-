@@ -81,7 +81,11 @@ export default class GoingOutComponent extends Component {
           });
           let infowindow = new google.maps.InfoWindow();          
           google.maps.event.addListener(marker, 'click', function() {
-            infowindow.setContent(location.name);
+            infowindow.setContent(
+              // need to make info window more 'ELEGANT';
+               `Name: ${location.name}
+               Location: ${location.location[0]} 
+               Rating: ${location.rating}`);
             infowindow.open(map, this);
           });
         });
