@@ -30,34 +30,7 @@ db.on("error", function(error) {
 	console.log("Mongoose Error: " + error);
 });
 
-
-
-
-// const clientID = '3HkM4SoAWb0uxd_Kcf2HJA';
-// const clientSecret = 'p1x3DXq8dt692LCWXtVonwTMZchVsw8dY6UoUQG696HiEOJ6ZqsU8kQXM6uBdA9x';
-// let token;
-// //=============================================================
-// const yelp = require('yelp-fusion');
-// yelp.accessToken(clientID, clientSecret).then(response => {
-//   console.log(response.jsonBody.access_token);
-//   token = response.jsonBody.access_token;
-//   testingYelp(token)
-// })
-
-
-// const testingYelp =  (token) => {
-//     let client = yelp.client(token);
-//     client.search({
-//     term:'Fast Food',
-//     location: 'san francisco, ca'
-//     }).then(response => {
-//     console.log(response.jsonBody);
-//     }).catch(e => {
-//     console.log(e);
-// });
-// }
-
-// require('./routes/api.js')(app);
+require('./routes/api.js')(app);
 
 app.get('*', (req, resp) => {
     resp.sendFile(__dirname + path.join('/public/index.html'));

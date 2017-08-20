@@ -141,12 +141,10 @@ $("#add-infoGM").on("click", function(event) {
     });
 });
 
-// Google maps api
+// Create Map
 function initMap() {
     zipcode;
     console.log(zipcode);
-
-
     map = new google.maps.Map(document.getElementById('map'), {
         center: zipcode,
         zoom: 13
@@ -160,7 +158,9 @@ function initMap() {
         type: [typeGM]
     }, callback);
 }
-// Google maps api
+
+
+// Process stores that are within the vicinity of zipcode
 function callback(results, status) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
 
@@ -182,7 +182,7 @@ function callback(results, status) {
 
     }
 }
-// Google maps api
+// create the marker for google maps
 function createMarker(place) {
     var placeLoc = place.geometry.location;
     var marker = new google.maps.Marker({
@@ -196,35 +196,6 @@ function createMarker(place) {
         infowindow.open(map, this);
     });
 }
-
-
-// Initialize Firebase
-// var config = {
-//     apiKey: "AIzaSyDUuTEo0pNuJ489UnVdRUqFEL3FQqMdK9I",
-//     authDomain: "my-awesome-project-487ee.firebaseapp.com",
-//     databaseURL: "https://my-awesome-project-487ee.firebaseio.com",
-//     projectId: "my-awesome-project-487ee",
-//     storageBucket: "my-awesome-project-487ee.appspot.com",
-//     messagingSenderId: "693219172838"
-// };
-// firebase.initializeApp(config);
-
-// $('#add-infoAboutMe').on('click', function() {
-//     event.preventDefault();
-
-//     var gender = $('#Gender-input').val().trim();
-//     var age = $('#age-info').val().trim();
-//     var astrology = $('#Astrology-input').val().trim();
-
-//     database.ref().push({
-//         gender: gender,
-//         age: age,
-//         astrology: astrology
-//     })
-
-//     setTimeout(window.location.href = page2.html, 2000)
-// });
-
 // seatGeeksAPI
 $('#add-infoSG').on('click', function() {
     var date = $('#date-input').val().trim();
@@ -250,8 +221,9 @@ $('#add-infoSG').on('click', function() {
     $(".googleMapsAPI").show();
     $("#seatGeek-back-btn-container").show();
     $("#back-btn-panel2").hide();
-
 });
+
+
 
 // Instructable API
 var bubbleContainer = $("<div class='col-lg-6 bubbleContainer'>")

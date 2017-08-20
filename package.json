@@ -7,6 +7,7 @@
     "axios": "^0.16.2",
     "body-parser": "^1.17.2",
     "express": "^4.15.4",
+    "google-maps": "^3.2.1",
     "mongoose": "^4.11.6",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
