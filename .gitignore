@@ -57,9 +57,6 @@ typings/
 # dotenv environment variables file
 .env
 
-# ignore bundle file 
-public/bundle.js
-
 
 # ignore Yelp API credentials 
 public/secrets.js
