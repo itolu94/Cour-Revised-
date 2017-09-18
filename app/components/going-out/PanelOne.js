@@ -6,10 +6,14 @@ import ReactCSSTransitionGropu from 'react-addons-css-transition-group';
 export default class PanelOne extends Component {
     constructor() {
         super();
+        this.state = {
+            value: ''
+        }
     }
     render(){
-        const display = {'display': this.props.searchBox}
-        const displayActivity = {'display': this.props.pannel}
+        const display = {display: this.props.searchBox}
+        const displayActivity = {display: this.props.pannel}
+        const displayMap = {display: this.props.mapDisplay }
         return(
             <div className="col-lg-6">
                 <div className="panel panel-default panel-going-out">
@@ -37,20 +41,24 @@ export default class PanelOne extends Component {
                                 <form role="form">
                                     <div className="form-group">
                                         <label for="name-input" id="name-inputGM">Zip Code</label>
-                                        <input ref={(input) => {this.zipCode = input} } className="form-control" id="zip-code-inputGM" type="text" data-bind="value: location" />
+                                        <input
+                                        onChange={(e) => this.props.handleChange(e)}
+                                        value={this.props.value}  
+                                        className="form-control" id="zip-code-inputGM" type="text" data-bind="value: location" />
                                     </div>
                                 </form>
-                                <button onClick={() => this.props.yelp(this.zipCode.value.trim(), 1)}className="btn btn-default" id="add-infoGM" type="submit">Submit</button>
+                                <button onClick={() => this.props.yelp(this.props.value, 1)}className="btn btn-default" id="add-infoGM" type="submit">Submit</button>
                                 <button onClick={() => this.props.revert()} className="btn btn-default" id="back-btn-panel1" type="submit">Back</button>
                             </div>
                         </div>
-
-                        <div className="col-lg-12 googleMapsAPI">
+                        <div style={displayMap}>
+                          <div className="col-lg-12 googleMapsAPI">
                             <div id="map">
                             </div>
-                        </div>
-                        <div id="seatGeek-back-btn-container">
-                          <button onClick={() => this.props.revert()} className="btn btn-default" id="back-btn-seatGeek" type="submit">Back</button>
+                          </div>
+                          <div id="seatGeek-back-btn-container">
+                           <button onClick={() => this.props.revert()} className="btn btn-default" id="back-btn-seatGeek" type="submit">Back</button>
+                          </div>
                         </div>
                     </div>
                 </div>

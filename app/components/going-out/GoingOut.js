@@ -14,12 +14,16 @@ export default class GoingOutComponent extends Component {
         displaySearchTwo: 'none',
         displayPannelOne: 'inline',
         displayPannelTwo: 'inline',
-        activity: 'coffee' 
+        mapDisplay: 'none',
+        yelpResults: 'none',
+        activity: 'coffee',
+        value: ''
       }
       this.handleTransitions = this.handleTransitions.bind(this);
       this.handleRevert = this.handleRevert.bind(this);
       this.yelpSearch =  this.yelpSearch.bind(this);
       this.googleMaps = this.googleMaps.bind(this);
+      this.handleChange = this.handleChange.bind(this);
     }
     handleTransitions(pannel, activity){
       if(pannel === 1 ) {
@@ -42,13 +46,19 @@ export default class GoingOutComponent extends Component {
         displaySearchOne: 'none',
         displaySearchTwo: 'none',
         displayPannelOne: 'inline',
-        displayPannelTwo: 'inline',})
+        displayPannelTwo: 'inline',
+        mapDisplay: 'none',
+        value: ''
+      })
+      document.getElementById('map').innerHTML = '';
     }
     yelpSearch(location, panel){
       let activity = this.state.activity
       yelp(location, activity, (result) =>{
-        this.setState({businessInfo: result.data})
-        console.log(this.state.businessInfo);
+        this.setState({
+          businessInfo: result.data,
+          mapDisplay: 'inline'
+        })
         this.googleMaps();
       });
       console.log(panel)
@@ -70,7 +80,6 @@ export default class GoingOutComponent extends Component {
         });
         this.state.businessInfo.businesses.map((location, index) =>{
           let coordinate = location.coordinates;
-          console.log(coordinate);
           marker = new google.maps.Marker({
             map: map,
             label: index,
@@ -83,14 +92,21 @@ export default class GoingOutComponent extends Component {
           google.maps.event.addListener(marker, 'click', function() {
             infowindow.setContent(
               // need to make info window more 'ELEGANT';
-               `Name: ${location.name}
-               Location: ${location.location[0]} 
-               Rating: ${location.rating}`);
+               `Name: ${location.name}`);
+              //  Location: ${location.location[0]} 
+              //  Rating: ${location.rating}
+               
             infowindow.open(map, this);
           });
         });
       });
     }
+    handleChange(e){
+      this.setState({
+        value: e.target.value
+      });
+    }
+
     render(){
         return(
           <div>
@@ -103,11 +119,15 @@ export default class GoingOutComponent extends Component {
                 hanldeTransitions={this.handleTransitions}
                 revert={this.handleRevert}
                 yelp={this.yelpSearch}
+                handleChange={this.handleChange}
+                value={this.state.value}
+                mapDisplay={this.state.mapDisplay}
                 />
                 <PanelTwo 
                 pannel={this.state.displayPannelTwo} 
                 searchBox={this.state.displaySearchTwo}
-                hanldeTransitions={this.handleTransitions}                
+                hanldeTransitions={this.handleTransitions}   
+                yelpResults={this.state.yelpResults}             
                 />
               </div>
             </div>

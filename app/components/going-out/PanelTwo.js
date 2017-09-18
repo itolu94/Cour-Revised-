@@ -1,13 +1,17 @@
 import React, {Component} from 'react';
-
+import YelpListings from './YelpListings';
 
 
 export default class PanelTwo extends Component {
     constructor() {
         super();
     }
+    handleYelpResults(){
+        
+    }
     render(){
-        const display = {'display': 'none'}
+        const display = {display: 'none'}
+        const displayYelp = {display: this.props.yelpResults}
         return(
              <div className="col-lg-6">
                 <div className="panel panel-default panel-going-out">
@@ -43,7 +47,8 @@ export default class PanelTwo extends Component {
                             <button className="btn btn-default" id="add-infoSG" type="submit">Submit</button>
                             <button className="btn btn-default" id="back-btn-panel2" type="submit">Back</button>
                         </div>
-                        <div className="col-lg-12 googleMapsAPIList">
+                        <div style={displayYelp} className="col-lg-12 googleMapsAPIList">
+                            <YelpListings />
                         </div>
                         <div className="col-lg-12 seatGeeksAPI">
                         </div>
