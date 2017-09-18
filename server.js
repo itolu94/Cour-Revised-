@@ -22,14 +22,14 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 
-mongoose.Promise = Promise;
+// mongoose.Promise = Promise;
 
-mongoose.connect("mongodb://localhost/cour");
-var db = mongoose.connection;
+// mongoose.connect("mongodb://localhost/cour");
+// var db = mongoose.connection;
 
-db.on("error", function(error) {
-	console.log("Mongoose Error: " + error);
-});
+// db.on("error", function(error) {
+// 	console.log("Mongoose Error: " + error);
+// });
 
 require('./routes/api.js')(app);
 
@@ -37,10 +37,6 @@ app.get('*', (req, resp) => {
     resp.sendFile(__dirname + path.join('/public/index.html'));
 })
 
-
-db.once("open", function() {
-    console.log("Mongoose connection successful.");
     app.listen(PORT, () => {
           console.log(`Page is being hosted on ${PORT}`);   
-    })
-});
+    }
