@@ -31,7 +31,7 @@
 }
 
 html {
-  overflow: hidden;
+   overflow-x: hidden; 
 }
 
 body {
@@ -165,7 +165,7 @@ body {
 .category-icon {
   width: 90px;
   height: 90px;
-  float: left;
+  /* float: left; */
   margin: 5px 20px;
   margin-bottom: -10px;
   margin-top: 10px;
@@ -201,13 +201,16 @@ a{ color: #F58CAC;}
   font-size: 18px;
 }
 
+.out-or-in-pannel{
+  margin-top: 3%;
+}
+
 #going-out-content {
   margin: 40px 20px;
 }
 
-.panel-body{
-  margin-top: 12%;
-}
+/* .panel-body{
+} */
 
 .panel-going-out {
   background-color: #303030;
@@ -217,12 +220,13 @@ a{ color: #F58CAC;}
   height: 666px
 }
 .panelsecond {
-  height: ;
+  /* height: ; */
 }
+
 .bubbleContainer{
   position: relative;
   top: -650px;
-  left: -200px;
+  /* left: -200px; */
   margin-left: -15px;
   margin-top: 15px;
 }
@@ -302,13 +306,14 @@ body {
 }
 
 .bubbleAPI {
-  left: 178px;
+  /* left: 25%; */
+  width: 100%;
   overflow-x: hidden;
   border-radius: 15px 15px;
 }
 
 .bubble-wrapper {
-  margin-left: -200px;
+  /* margin-left: -200px; */
 }
 
 .bubble {

@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
     // going out page on ready functions //
     // $(".bubbleContainer").hide();H
@@ -103,7 +104,7 @@ $("#back-btn-seatGeek").click(function() {
 
 // var used for googleMapsAPI
 var map;
-var location
+var location;
 var infowindow;
 var zipcode = {
     lat: 35.9132,
@@ -141,12 +142,10 @@ $("#add-infoGM").on("click", function(event) {
     });
 });
 
-// Google maps api
+// Create Map
 function initMap() {
     zipcode;
     console.log(zipcode);
-
-
     map = new google.maps.Map(document.getElementById('map'), {
         center: zipcode,
         zoom: 13
@@ -160,7 +159,9 @@ function initMap() {
         type: [typeGM]
     }, callback);
 }
-// Google maps api
+
+
+// Process stores that are within the vicinity of zipcode
 function callback(results, status) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
 
@@ -182,7 +183,7 @@ function callback(results, status) {
 
     }
 }
-// Google maps api
+// create the marker for google maps
 function createMarker(place) {
     var placeLoc = place.geometry.location;
     var marker = new google.maps.Marker({
@@ -196,35 +197,6 @@ function createMarker(place) {
         infowindow.open(map, this);
     });
 }
-
-
-// Initialize Firebase
-// var config = {
-//     apiKey: "AIzaSyDUuTEo0pNuJ489UnVdRUqFEL3FQqMdK9I",
-//     authDomain: "my-awesome-project-487ee.firebaseapp.com",
-//     databaseURL: "https://my-awesome-project-487ee.firebaseio.com",
-//     projectId: "my-awesome-project-487ee",
-//     storageBucket: "my-awesome-project-487ee.appspot.com",
-//     messagingSenderId: "693219172838"
-// };
-// firebase.initializeApp(config);
-
-// $('#add-infoAboutMe').on('click', function() {
-//     event.preventDefault();
-
-//     var gender = $('#Gender-input').val().trim();
-//     var age = $('#age-info').val().trim();
-//     var astrology = $('#Astrology-input').val().trim();
-
-//     database.ref().push({
-//         gender: gender,
-//         age: age,
-//         astrology: astrology
-//     })
-
-//     setTimeout(window.location.href = page2.html, 2000)
-// });
-
 // seatGeeksAPI
 $('#add-infoSG').on('click', function() {
     var date = $('#date-input').val().trim();
@@ -250,8 +222,9 @@ $('#add-infoSG').on('click', function() {
     $(".googleMapsAPI").show();
     $("#seatGeek-back-btn-container").show();
     $("#back-btn-panel2").hide();
-
 });
+
+
 
 // Instructable API
 var bubbleContainer = $("<div class='col-lg-6 bubbleContainer'>")
@@ -259,7 +232,8 @@ var link = $("<link rel='stylesheet' type='text/css' href='assets/js/instructabl
 var container = $("<div class='container'>")
 var bubbleAPI = $("<div class='bubbleAPI col-lg-6'>")
 var bubbleWrapper = $("<div class='bubble-wrapper'>")
-$('.Cooking-click').on('click', function() {
+$('#app').on('click', '.Cooking-click', function() {
+    console.log('click was recognized!');
     $('.panelfirst').hide();
     $('.panelsecond').fadeIn(3000);
     bubbleContainer.append(link)
@@ -273,7 +247,7 @@ $('.Cooking-click').on('click', function() {
     makeChart({ categories: instructablesDataFood }, "categories", instructablesDataFood);
 });
 
-$('.Desert-click').on('click', function() {
+$('#app').on('click','.Desert-click', function() {
     $('.panelfirst').hide();
     $('.panelsecond').fadeIn(3000);
     bubbleContainer.append(link)
@@ -287,7 +261,7 @@ $('.Desert-click').on('click', function() {
 
 })
 
-$('.Cocktails-click').on('click', function() {
+$('#app').on('click','.Cocktails-click', function() {
     $('.panelfirst').hide();
     $('.panelsecond').fadeIn(3000);
     bubbleContainer.append(link)
@@ -302,7 +276,7 @@ $('.Cocktails-click').on('click', function() {
 })
 
 
-$('.DIY-click').on('click', function() {
+$('#app').on('click','.DIY-click', function() {
     $('.panelsecond').hide();
     $('.panelfirst').fadeIn(3000);
     bubbleContainer.append(link)
@@ -316,7 +290,7 @@ $('.DIY-click').on('click', function() {
 
 });
 
-$('.Play-click').on('click', function() {
+$('#app').on('click','.Play-click', function() {
     $('.panelsecond').hide();
     $('.panelfirst').fadeIn(3000);
     bubbleContainer.append(link)
