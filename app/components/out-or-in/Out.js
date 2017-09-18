@@ -12,7 +12,7 @@ export default class GoingOut extends Component{
         return(
       <div className="col-lg-6 col-sm-12">
         <div className="panel panel-default panel-going-out">
-            <div onClick={this.goingOutClick} className="panel-body">
+            <div onClick={this.goingOutClick} className="panel-body out-or-in-pannel">
               <img className="home-and-city-icon" src="assets/css/Images/CityIcon.svg" alt="City icon"  />
               <h1 >GOING OUT</h1>
             </div>

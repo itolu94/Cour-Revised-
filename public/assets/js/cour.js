@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
     // going out page on ready functions //
     // $(".bubbleContainer").hide();H
@@ -231,7 +232,8 @@ var link = $("<link rel='stylesheet' type='text/css' href='assets/js/instructabl
 var container = $("<div class='container'>")
 var bubbleAPI = $("<div class='bubbleAPI col-lg-6'>")
 var bubbleWrapper = $("<div class='bubble-wrapper'>")
-$('.Cooking-click').on('click', function() {
+$('#app').on('click', '.Cooking-click', function() {
+    console.log('click was recognized!');
     $('.panelfirst').hide();
     $('.panelsecond').fadeIn(3000);
     bubbleContainer.append(link)
@@ -245,7 +247,7 @@ $('.Cooking-click').on('click', function() {
     makeChart({ categories: instructablesDataFood }, "categories", instructablesDataFood);
 });
 
-$('.Desert-click').on('click', function() {
+$('#app').on('click','.Desert-click', function() {
     $('.panelfirst').hide();
     $('.panelsecond').fadeIn(3000);
     bubbleContainer.append(link)
@@ -259,7 +261,7 @@ $('.Desert-click').on('click', function() {
 
 })
 
-$('.Cocktails-click').on('click', function() {
+$('#app').on('click','.Cocktails-click', function() {
     $('.panelfirst').hide();
     $('.panelsecond').fadeIn(3000);
     bubbleContainer.append(link)
@@ -274,7 +276,7 @@ $('.Cocktails-click').on('click', function() {
 })
 
 
-$('.DIY-click').on('click', function() {
+$('#app').on('click','.DIY-click', function() {
     $('.panelsecond').hide();
     $('.panelfirst').fadeIn(3000);
     bubbleContainer.append(link)
@@ -288,7 +290,7 @@ $('.DIY-click').on('click', function() {
 
 });
 
-$('.Play-click').on('click', function() {
+$('#app').on('click','.Play-click', function() {
     $('.panelsecond').hide();
     $('.panelfirst').fadeIn(3000);
     bubbleContainer.append(link)

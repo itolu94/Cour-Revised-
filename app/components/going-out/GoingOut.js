@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import GoogleMapsLoader from 'google-maps';
-import NavBar from './NavBar';
 import PanelOne from './PanelOne';
 import PanelTwo from './PanelTwo';
 import {yelp} from '../../config/helpers';
@@ -110,7 +109,6 @@ export default class GoingOutComponent extends Component {
     render(){
         return(
           <div>
-            <NavBar />
             <div className="row" id="going-out-content">
               <div className="col-lg-12 collums">
                 <PanelOne 

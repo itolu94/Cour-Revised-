@@ -13,7 +13,7 @@ export default class PanelTwo extends Component {
         const display = {display: 'none'}
         const displayYelp = {display: this.props.yelpResults}
         return(
-             <div className="col-lg-6">
+             <div className="col-lg-6 col-sm-12">
                 <div className="panel panel-default panel-going-out">
                     <div className="panel-body">
                         <div id="first-info-panel2">

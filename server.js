@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const mongoose = require("mongoose");
+const axios = require('axios');
 
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
@@ -9,7 +10,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const User = require("./models/user.js");
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 
 app.use(passport.initialize());
@@ -35,6 +36,7 @@ require('./routes/api.js')(app);
 app.get('*', (req, resp) => {
     resp.sendFile(__dirname + path.join('/public/index.html'));
 })
+
 
 db.once("open", function() {
     console.log("Mongoose connection successful.");
