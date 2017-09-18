@@ -35,8 +35,8 @@ require('./routes/api.js')(app);
 
 app.get('*', (req, resp) => {
     resp.sendFile(__dirname + path.join('/public/index.html'));
-})
+});
 
-    app.listen(PORT, () => {
-          console.log(`Page is being hosted on ${PORT}`);   
-    }
+app.listen(PORT, () => {
+    console.log(`Page is being hosted on ${PORT}`);   
+});
