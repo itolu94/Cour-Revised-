@@ -1,204 +1,187 @@
 
 $(document).ready(function() {
-    // going out page on ready functions //
-    // $(".bubbleContainer").hide();H
-    $(".search").hide();
-    $(".search2").hide();
-    $("#panel1-results").hide();
-    $("#panel2-results").hide();
-    // added seatGeeksAPI and googleMapsAPI to this list
-    $('.seatGeeksAPI').hide();
-    $(".googleMapsAPI").hide();
-    $('.bubble-wrapper').hide();
-    $('.googleMapsAPIList').hide();
-    // added hide function for button containers //
-    $("#google-button-container").hide();
-    $("#seatGeek-back-btn-container").hide();
-
-
-
     // typeGM is used for google Maps API
     //typeGM was added to click events for coffee, restaurants, museums
     //museums and bars. 
-    var typeGM;
-    var typeSG;
-
-
-})
+//     var typeGM;
+//     var typeSG;
 
 
 
-// click event listners for going out page
-$("#concerts-click").click(function() {
-    $("#first-info-panel2").hide();
-    $(".search2").fadeIn(2000);
-    typeSG = 'concert';
-    console.log(typeSG);
-});
-$("#sports-click").click(function() {
-    $("#first-info-panel2").hide();
-    $(".search2").fadeIn(2000);
-    typeSG = 'sports';
-    console.log(typeSG);
-});
-$(".left-side-click").click(function() {
-    $("#first-info-panel1").hide();
-    $(".search").fadeIn(2000);
-});
-$("#coffee-click").click(function() {
-    $("#first-info-panel1").hide();
-    $("#panel1-results").fadeIn(2000);
-    typeGM = 'cafe';
-});
-$("#restaurants-click").click(function() {
-    $("#first-info-panel1").hide();
-    $("#panel1-results").fadeIn(2000);
-    typeGM = 'restaurant';
-});
-$("#libations-click").click(function() {
-    $("#first-info-panel1").hide();
-    $("#panel1-results").fadeIn(2000);
-    typeGM = 'bar';
-});
-$("#theater-click").click(function() {
-    $("#first-info-panel2").hide();
-    $(".search2").fadeIn(2000);
-});
-$("#museum-click").click(function() {
-    $("#first-info-panel1").hide();
-    $("#panel1-results").fadeIn(2000);
-    typeGM = 'museum';
-});
-$("#back-btn-panel1").click(function() {
-    $("#panel1-results").hide();
-    $("#first-info-panel1").fadeIn(2000);
-})
-$("#back-btn-panel2").click(function() {
-    $(".search2").hide();
-    $("#first-info-panel2").fadeIn(2000);
-});
-// added click function for google result back button//
-$("#back-btn-google").click(function() {
-    $(".googleMapsAPI").hide();
-    $(".googleMapsAPIList").hide().empty();
-    $("#google-button-container").hide();
-    $("#first-info-panel1").fadeIn(2000);
-    $("#first-info-panel2").fadeIn(2000);
-});
+// // click event listners for going out page
+// $(document).on('click', '#concerts-click', () => {
+//     $("#first-info-panel2").hide();
+//     $(".search2").fadeIn(2000);
+//     typeSG = 'concert';
+//     console.log(typeSG);
+// });
 
-// added click function for seatGeek result back button
+// $(document).on('click','#sports-click',() => {
+//     $("#first-info-panel2").hide();
+//     $(".search2").fadeIn(2000);
+//     typeSG = 'sports';
+//     console.log(typeSG);
+// });
+// $(".left-side-click").click(function() {
+//     $("#first-info-panel1").hide();
+//     $(".search").fadeIn(2000);
+// });
+// $("#coffee-click").click(function() {
+//     $("#first-info-panel1").hide();
+//     $("#panel1-results").fadeIn(2000);
+//     typeGM = 'cafe';
+// });
+// $("#restaurants-click").click(function() {
+//     $("#first-info-panel1").hide();
+//     $("#panel1-results").fadeIn(2000);
+//     typeGM = 'restaurant';
+// });
+// $("#libations-click").click(function() {
+//     $("#first-info-panel1").hide();
+//     $("#panel1-results").fadeIn(2000);
+//     typeGM = 'bar';
+// });
+// $("#theater-click").click(function() {
+//     $("#first-info-panel2").hide();
+//     $(".search2").fadeIn(2000);
+// });
+// $("#museum-click").click(function() {
+//     $("#first-info-panel1").hide();
+//     $("#panel1-results").fadeIn(2000);
+//     typeGM = 'museum';
+// });
+// $("#back-btn-panel1").click(function() {
+//     $("#panel1-results").hide();
+//     $("#first-info-panel1").fadeIn(2000);
+// })
+// $("#back-btn-panel2").click(function() {
+//     $(".search2").hide();
+//     $("#first-info-panel2").fadeIn(2000);
+// });
+// // added click function for google result back button//
+// $("#back-btn-google").click(function() {
+//     $(".googleMapsAPI").hide();
+//     $(".googleMapsAPIList").hide().empty();
+//     $("#google-button-container").hide();
+//     $("#first-info-panel1").fadeIn(2000);
+//     $("#first-info-panel2").fadeIn(2000);
+// });
 
-$("#back-btn-seatGeek").click(function() {
-    $(".googleMapsAPI").hide();
-    $("#seatGeek-back-btn-container").hide();
-    $(".search2").hide();
-    $("#first-info-panel1").fadeIn(2000);
-    $("#first-info-panel2").fadeIn(2000);
-    $("#back-btn-panel2").show();
+// // added click function for seatGeek result back button
+
+// $("#back-btn-seatGeek").click(function() {
+//     $(".googleMapsAPI").hide();
+//     $("#seatGeek-back-btn-container").hide();
+//     $(".search2").hide();
+//     $("#first-info-panel1").fadeIn(2000);
+//     $("#first-info-panel2").fadeIn(2000);
+//     $("#back-btn-panel2").show();
 
 
-})
+// })
 
 
 
 
-// var used for googleMapsAPI
-var map;
-var location;
-var infowindow;
-var zipcode = {
-    lat: 35.9132,
-    lng: -79.0558
-};
+// // var used for googleMapsAPI
+// var map;
+// var location;
+// var infowindow;
+// var zipcode = {
+//     lat: 35.9132,
+//     lng: -79.0558
+// };
 
-var labels = "12345";
-var labelIndex = 0
-
-
-$("#add-infoGM").on("click", function(event) {
-    $("#panel1-results").hide();
-    $(".googleMapsAPI").fadeIn(2000);
-    var location = $('#zip-code-inputGM').val();
-    console.log(location);
-    event.preventDefault();
-    // address search box
-    var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + location + "&key=AIzaSyCa5mL-wJVftS2kSRy6jVV-WCdQWNUEEG4";
-
-    // run ajax code to use Google API to get longitude and latitude
-    $.ajax({
-        url: queryURL,
-        method: "GET",
-        dataType: "json",
-        cache: false,
-        success: function(response) {
-            zipcode = {
-                // define zipcode based on address user put in
-                lat: response.results[0].geometry.location.lat,
-                lng: response.results[0].geometry.location.lng
-            };
-            // generates map using google API
-            initMap();
-        }
-    });
-});
-
-// Create Map
-function initMap() {
-    zipcode;
-    console.log(zipcode);
-    map = new google.maps.Map(document.getElementById('map'), {
-        center: zipcode,
-        zoom: 13
-    });
-
-    infowindow = new google.maps.InfoWindow();
-    var service = new google.maps.places.PlacesService(map);
-    service.nearbySearch({
-        location: zipcode,
-        radius: 5000,
-        type: [typeGM]
-    }, callback);
-}
+// var labels = "12345";
+// var labelIndex = 0
 
 
-// Process stores that are within the vicinity of zipcode
-function callback(results, status) {
-    if (status === google.maps.places.PlacesServiceStatus.OK) {
+// $("#add-infoGM").on("click", function(event) {
+//     $("#panel1-results").hide();
+//     $(".googleMapsAPI").fadeIn(2000);
+//     var location = $('#zip-code-inputGM').val();
+//     console.log(location);
+//     event.preventDefault();
+//     // address search box
+//     var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + location + "&key=AIzaSyCa5mL-wJVftS2kSRy6jVV-WCdQWNUEEG4";
 
-        for (var i = 0; i < results.length; i++) {
-            createMarker(results[i]);
-            var numberOrder = i + 1;
-            $('.googleMapsAPIList').append('<p>' + numberOrder + '.  Name: ' + results[i].name + '</p>');
-            $('.googleMapsAPIList').append('<p> Address: ' + results[i].vicinity + '</p>');
-            $('.googleMapsAPIList').append('<p> Rating: ' + results[i].rating + '</p>');
-            if (i === 5) {
-                break;
-            }
-        }
-        $("#first-info-panel2").hide();
-        $('.googleMapsAPIList').fadeIn(5000);
+//     // run ajax code to use Google API to get longitude and latitude
+//     $.ajax({
+//         url: queryURL,
+//         method: "GET",
+//         dataType: "json",
+//         cache: false,
+//         success: function(response) {
+//             zipcode = {
+//                 // define zipcode based on address user put in
+//                 lat: response.results[0].geometry.location.lat,
+//                 lng: response.results[0].geometry.location.lng
+//             };
+//             // generates map using google API
+//             initMap();
+//         }
+//     });
+// });
 
-        // added button fade in//
-        $("#google-button-container").fadeIn(5000);
+// // Create Map
+// function initMap() {
+//     zipcode;
+//     console.log(zipcode);
+//     map = new google.maps.Map(document.getElementById('map'), {
+//         center: zipcode,
+//         zoom: 13
+//     });
 
-    }
-}
-// create the marker for google maps
-function createMarker(place) {
-    var placeLoc = place.geometry.location;
-    var marker = new google.maps.Marker({
-        map: map,
-        label: labels[labelIndex++ % labels.length],
-        position: place.geometry.location
-    });
+//     infowindow = new google.maps.InfoWindow();
+//     var service = new google.maps.places.PlacesService(map);
+//     service.nearbySearch({
+//         location: zipcode,
+//         radius: 5000,
+//         type: [typeGM]
+//     }, callback);
+// }
 
-    google.maps.event.addListener(marker, 'click', function() {
-        infowindow.setContent(place.name);
-        infowindow.open(map, this);
-    });
-}
+
+// // Process stores that are within the vicinity of zipcode
+// function callback(results, status) {
+//     if (status === google.maps.places.PlacesServiceStatus.OK) {
+
+//         for (var i = 0; i < results.length; i++) {
+//             createMarker(results[i]);
+//             var numberOrder = i + 1;
+//             $('.googleMapsAPIList').append('<p>' + numberOrder + '.  Name: ' + results[i].name + '</p>');
+//             $('.googleMapsAPIList').append('<p> Address: ' + results[i].vicinity + '</p>');
+//             $('.googleMapsAPIList').append('<p> Rating: ' + results[i].rating + '</p>');
+//             if (i === 5) {
+//                 break;
+//             }
+//         }
+//         $("#first-info-panel2").hide();
+//         $('.googleMapsAPIList').fadeIn(5000);
+
+//         // added button fade in//
+//         $("#google-button-container").fadeIn(5000);
+
+//     }
+// }
+// // create the marker for google maps
+// function createMarker(place) {
+//     var placeLoc = place.geometry.location;
+//     var marker = new google.maps.Marker({
+//         map: map,
+//         label: labels[labelIndex++ % labels.length],
+//         position: place.geometry.location
+//     });
+
+//     google.maps.event.addListener(marker, 'click', function() {
+//         infowindow.setContent(place.name);
+//         infowindow.open(map, this);
+//     });
+// }
 // seatGeeksAPI
-$('#add-infoSG').on('click', function() {
+// $(document).on('click','#add-infoSG', function() {
+    $(document).on('click','#add-infoSGSOMEOTHERStuff', function() {
+    var typeSG =  'concert';
     var date = $('#date-input').val().trim();
     var zipcode = $('#zip-code-inputSG').val().trim();
     var queryURL = 'https://api.seatgeek.com/2/events?&geoip=' + zipcode + '&sort=score.desc&type=' + typeSG + '&datetime_utc=' + date + '&client_id=NzIwMTk3MnwxNDkxMDAyMDQ0LjE2'
@@ -209,7 +192,9 @@ $('#add-infoSG').on('click', function() {
     }).done(function(response) {
         $('#map').empty();
         console.log(response);
+        if (response) {
         for (var i = 0; response.events.length; i++) {
+            console.log(response.events[i].title);
             $('#map').append("<p> Artist: " + response.events[i].title + '</p>');
             $('#map').append("<p> Venue: " + response.events[i].venue.name + '</p>');
             $('#map').append("<a href ='" + response.events[i].url + "' target= _blank>Buy Tickets</a>");
@@ -217,6 +202,11 @@ $('#add-infoSG').on('click', function() {
                 break;
             }
         }
+    }
+    else {
+        $('#map').append("<p>No events taking place on that" + data + "</p>");
+        
+    }
     });
     $("#first-info-panel1").hide();
     $(".googleMapsAPI").show();
@@ -304,4 +294,5 @@ $('#app').on('click','.Play-click', function() {
 });
 
 
+});
 

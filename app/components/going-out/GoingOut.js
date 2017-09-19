@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import GoogleMapsLoader from 'google-maps';
+import axios from 'axios';
 import PanelOne from './PanelOne';
 import PanelTwo from './PanelTwo';
 import {yelp} from '../../config/helpers';
@@ -16,29 +17,49 @@ export default class GoingOutComponent extends Component {
         mapDisplay: 'none',
         yelpResults: 'none',
         activity: 'coffee',
-        value: ''
+        zipcode: '',
+        date: '',
+        seatGeekEvents: [],
+        displaySeatGeek: 'none'
       }
       this.handleTransitions = this.handleTransitions.bind(this);
       this.handleRevert = this.handleRevert.bind(this);
       this.yelpSearch =  this.yelpSearch.bind(this);
       this.googleMaps = this.googleMaps.bind(this);
       this.handleChange = this.handleChange.bind(this);
+      this.seatGeek = this.seatGeek.bind(this);
     }
-    handleTransitions(pannel, activity){
-      if(pannel === 1 ) {
+    handleTransitions(transition, activity){
+     switch(transition){
+      case 1: 
         this.setState({
-          activity: activity,
+          activity,
           displayPannelOne: 'none',
           displaySearchOne: 'inline',
-          businessInfo: {}
-        });   
-      }
-      else if(pannel === 'pannel2'){
-      console.log(
-        `Click for ${pannel} was registered..
-        Activyt was ${activity}
-        `);   
-      }
+          displayPannelTwo: 'inline',
+          displaySearchTwo: 'none',
+          businessInfo: {},
+          zipcode: ''
+        });
+        break;   
+      case 2:
+        this.setState({
+          activity,
+          displayPannelTwo: 'none',
+          displaySearchTwo: 'inline',
+          displayPannelOne: 'inline',
+          displaySearchOne: 'none',
+          businessInfo: {},
+          zipcode: '',
+          seatGeekEvents: []
+        
+        });
+        break;
+      case 3: 
+        // this.seatGeek();
+        break;
+     }
+
     }  
     handleRevert(){
       this.setState({        
@@ -46,8 +67,9 @@ export default class GoingOutComponent extends Component {
         displaySearchTwo: 'none',
         displayPannelOne: 'inline',
         displayPannelTwo: 'inline',
+        displaySeatGeek: 'none',
         mapDisplay: 'none',
-        value: ''
+        zipcode: ''
       })
       document.getElementById('map').innerHTML = '';
     }
@@ -60,11 +82,9 @@ export default class GoingOutComponent extends Component {
         })
         this.googleMaps();
       });
-      console.log(panel)
-      if (panel === 1) {
         this.setState({displaySearchOne: 'none'});
-      }
     }
+
     googleMaps(){
       let map, marker;
       GoogleMapsLoader.KEY = 'AIzaSyCa5mL-wJVftS2kSRy6jVV-WCdQWNUEEG4';
@@ -100,9 +120,46 @@ export default class GoingOutComponent extends Component {
         });
       });
     }
-    handleChange(e){
+    seatGeek(){
+      let URL = `https://api.seatgeek.com/2/events?&geoip=${this.state.zipcode}&sort=score.desc&type=${this.state.activity}&datetime_utc=${this.state.data}&client_id=NzIwMTk3MnwxNDkxMDAyMDQ0LjE2`
+      console.log(URL);
+      axios.get(URL).then((response) => {
+        if(response.data.events.lenght <= 0){
+          this.setState({seatGeekEvents: []});
+        }else {
+          this.setState({
+            seatGeekEvents: response.data.events,
+            displayPannelOne: 'none',
+            displaySeatGeek: 'inline'
+          });
+
+        }
+      });
+      // $.ajax({
+      //     method: "GET",
+      //     url: queryURL
+      // }).done(function(response) {
+      //     $('#map').empty();
+      //     if (response) {
+      //     for (var i = 0; response.events.length; i++) {
+      //         console.log(response.events[i].title);
+      //         $('#map').append("<p> Artist: " + response.events[i].title + '</p>');
+      //         $('#map').append("<p> Venue: " + response.events[i].venue.name + '</p>');
+      //         $('#map').append("<a href ='" + response.events[i].url + "' target= _blank>Buy Tickets</a>");
+      //         if (i === 5) {
+      //             break;
+      //         }
+      //     }
+      // }
+      // else {
+      //     $('#map').append("<p>No events taking place on that" + data + "</p>");
+          
+      // }
+      // });
+    }
+    handleChange(e, field){
       this.setState({
-        value: e.target.value
+        [field]: e.target.value
       });
     }
 
@@ -114,18 +171,25 @@ export default class GoingOutComponent extends Component {
                 <PanelOne 
                 pannel={this.state.displayPannelOne} 
                 searchBox={this.state.displaySearchOne}
-                hanldeTransitions={this.handleTransitions}
+                handleTransitions={this.handleTransitions}
                 revert={this.handleRevert}
                 yelp={this.yelpSearch}
                 handleChange={this.handleChange}
-                value={this.state.value}
+                zipcode={this.state.zipcode}
                 mapDisplay={this.state.mapDisplay}
+                seatGeekEvents={this.state.seatGeekEvents}
+                displaySeatGeek={this.state.displaySeatGeek}
                 />
                 <PanelTwo 
                 pannel={this.state.displayPannelTwo} 
                 searchBox={this.state.displaySearchTwo}
-                hanldeTransitions={this.handleTransitions}   
-                yelpResults={this.state.yelpResults}             
+                handleTransitions={this.handleTransitions}   
+                handleChange={this.handleChange}                
+                yelpResults={this.state.yelpResults}   
+                revert={this.handleRevert}
+                zipcode={this.state.zipcode}   
+                date={this.state.date}  
+                seatGeek={this.seatGeek}
                 />
               </div>
             </div>
