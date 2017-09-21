@@ -25,7 +25,6 @@ export default class Layout extends Component {
                     <div className="rolk">a</div>
                     <div className="rolk">a</div>
                     <div className="rolk rolk3">a</div>
-                    <img src="./assets/css/Images/CocktailIcon.svg" alt="cocktail icon" className="category-icon row-null" />
                 </div>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 var makeChart = function(root, lookFor, back) {
 
-    var diameter = 600;
+    var diameter = 500;
     var color = d3.scale.category10();
 
     var bubble = d3.layout.pack()

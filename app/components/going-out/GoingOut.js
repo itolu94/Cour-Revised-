@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import GoogleMapsLoader from 'google-maps';
 import axios from 'axios';
-import PanelOne from './PanelOne';
-import PanelTwo from './PanelTwo';
+import PanelOne from './panel-one/PanelOne';
+import PanelTwo from './panel-two/PanelTwo';
 import {yelp} from '../../config/helpers';
 
 
@@ -10,17 +10,12 @@ export default class GoingOutComponent extends Component {
     constructor(){
       super();
       this.state = {
-        displaySearchOne: 'none',
-        displaySearchTwo: 'none',
-        displayPannelOne: 'inline',
-        displayPannelTwo: 'inline',
-        mapDisplay: 'none',
-        yelpResults: 'none',
+        panelOneDisplay: 'activities',
+        panelTwoDisplay: 'activities',
         activity: 'coffee',
         zipcode: '',
         date: '',
         seatGeekEvents: [],
-        displaySeatGeek: 'none'
       }
       this.handleTransitions = this.handleTransitions.bind(this);
       this.handleRevert = this.handleRevert.bind(this);
@@ -31,58 +26,53 @@ export default class GoingOutComponent extends Component {
     }
     handleTransitions(transition, activity){
      switch(transition){
-      case 1: 
+      case 'googleSearch': 
         this.setState({
           activity,
-          displayPannelOne: 'none',
-          displaySearchOne: 'inline',
-          displayPannelTwo: 'inline',
-          displaySearchTwo: 'none',
+          panelOneDisplay: transition,
           businessInfo: {},
           zipcode: ''
         });
         break;   
-      case 2:
+      case 'seatgeekSearch':
         this.setState({
           activity,
-          displayPannelTwo: 'none',
-          displaySearchTwo: 'inline',
-          displayPannelOne: 'inline',
-          displaySearchOne: 'none',
+          panelTwoDisplay: transition,
           businessInfo: {},
           zipcode: '',
           seatGeekEvents: []
         
         });
         break;
-      case 3: 
-        // this.seatGeek();
-        break;
+      case '': 
+        // this.setState({
+        //   panelOneDisplay: transition,
+        // });
+      break;
      }
 
     }  
     handleRevert(){
       this.setState({        
-        displaySearchOne: 'none',
-        displaySearchTwo: 'none',
-        displayPannelOne: 'inline',
-        displayPannelTwo: 'inline',
-        displaySeatGeek: 'none',
-        mapDisplay: 'none',
-        zipcode: ''
+        panelOneDisplay: 'activities',
+        panelTwoDisplay: 'activities',
+        zipcode: '',
+        businessInfo: {}
       })
-      document.getElementById('map').innerHTML = '';
     }
-    yelpSearch(location, panel){
-      let activity = this.state.activity
+    yelpSearch(){
+      let activity = this.state.activity;
+      let location = this.state.zipcode;
       yelp(location, activity, (result) =>{
         this.setState({
           businessInfo: result.data,
-          mapDisplay: 'inline'
         })
         this.googleMaps();
       });
-        this.setState({displaySearchOne: 'none'});
+        this.setState({
+          panelOneDisplay: 'googleMaps',
+          panelTwoDisplay: 'yelp'
+        });
     }
 
     googleMaps(){
@@ -122,40 +112,17 @@ export default class GoingOutComponent extends Component {
     }
     seatGeek(){
       let URL = `https://api.seatgeek.com/2/events?&geoip=${this.state.zipcode}&sort=score.desc&type=${this.state.activity}&datetime_utc=${this.state.data}&client_id=NzIwMTk3MnwxNDkxMDAyMDQ0LjE2`
-      console.log(URL);
       axios.get(URL).then((response) => {
         if(response.data.events.lenght <= 0){
           this.setState({seatGeekEvents: []});
         }else {
           this.setState({
             seatGeekEvents: response.data.events,
-            displayPannelOne: 'none',
-            displaySeatGeek: 'inline'
+            panelOneDisplay: 'seatgeekResults'
           });
 
         }
       });
-      // $.ajax({
-      //     method: "GET",
-      //     url: queryURL
-      // }).done(function(response) {
-      //     $('#map').empty();
-      //     if (response) {
-      //     for (var i = 0; response.events.length; i++) {
-      //         console.log(response.events[i].title);
-      //         $('#map').append("<p> Artist: " + response.events[i].title + '</p>');
-      //         $('#map').append("<p> Venue: " + response.events[i].venue.name + '</p>');
-      //         $('#map').append("<a href ='" + response.events[i].url + "' target= _blank>Buy Tickets</a>");
-      //         if (i === 5) {
-      //             break;
-      //         }
-      //     }
-      // }
-      // else {
-      //     $('#map').append("<p>No events taking place on that" + data + "</p>");
-          
-      // }
-      // });
     }
     handleChange(e, field){
       this.setState({
@@ -169,20 +136,17 @@ export default class GoingOutComponent extends Component {
             <div className="row" id="going-out-content">
               <div className="col-lg-12 collums">
                 <PanelOne 
-                pannel={this.state.displayPannelOne} 
-                searchBox={this.state.displaySearchOne}
+                panelOneDisplay={this.state.panelOneDisplay}
                 handleTransitions={this.handleTransitions}
                 revert={this.handleRevert}
                 yelp={this.yelpSearch}
                 handleChange={this.handleChange}
                 zipcode={this.state.zipcode}
-                mapDisplay={this.state.mapDisplay}
                 seatGeekEvents={this.state.seatGeekEvents}
-                displaySeatGeek={this.state.displaySeatGeek}
                 />
                 <PanelTwo 
-                pannel={this.state.displayPannelTwo} 
-                searchBox={this.state.displaySearchTwo}
+                businessInfo={this.state.businessInfo}
+                panelTwoDisplay={this.state.panelTwoDisplay}
                 handleTransitions={this.handleTransitions}   
                 handleChange={this.handleChange}                
                 yelpResults={this.state.yelpResults}   

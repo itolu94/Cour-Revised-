@@ -21,9 +21,15 @@ export default class SeatGeek extends Component {
     }
     render(){
         return (
-            <div>
+        <div>
+            <div id='seatGeekResults' className="col-lg-12">
+            <h3 id='seatGeekHeader'> Events Near By </h3>
                 {this.makeList()}
             </div>
+            <div id="seatGeek-back-btn-container">
+                <button onClick={() => this.props.revert()} className="btn btn-default" id="back-btn-seatGeek" type="submit">Back</button>                            
+            </div>
+        </div>
         )
     }
 }

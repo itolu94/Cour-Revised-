@@ -217,10 +217,11 @@ $(document).ready(function() {
 
 
 // Instructable API
-var bubbleContainer = $("<div class='col-lg-6 bubbleContainer'>")
+var bubbleContainer = $("<div class=' bubbleContainer'>")
 var link = $("<link rel='stylesheet' type='text/css' href='assets/js/instructable_Static/style.css'>")
-var container = $("<div class='container'>")
-var bubbleAPI = $("<div class='bubbleAPI col-lg-6'>")
+var container = $("<div class=''>")
+var bubbleAPI = $("<div class='bubbleAPI'>")
+var header = $("<h3> Double click a bubble! </h3>");
 var bubbleWrapper = $("<div class='bubble-wrapper'>")
 $('#app').on('click', '.Cooking-click', function() {
     console.log('click was recognized!');
@@ -229,6 +230,7 @@ $('#app').on('click', '.Cooking-click', function() {
     bubbleContainer.append(link)
     bubbleContainer.append(container)
     container.append(bubbleAPI)
+    bubbleAPI.append(header);
     bubbleAPI.append(bubbleWrapper)
     bubbleContainer.hide()
     bubbleContainer.fadeIn(2000);

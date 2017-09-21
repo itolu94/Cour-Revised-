@@ -75,8 +75,8 @@ export default class PanelOne extends Component {
                             <div id='seatGeekResults' className="col-lg-12">
                                 <SeatGeek seatGeekEvents={this.props.seatGeekEvents} />
                             </div>
-                        <div id="seatGeek-back-btn-container">
-                         <button onClick={() => this.props.revert()} className="btn btn-default" id="back-btn-seatGeek" type="submit">Back</button>
+                            <button onClick={() => this.props.revert()} className="btn btn-default" id="back-btn-seatGeek" type="submit">Back</button>                            
+                            <div id="seatGeek-back-btn-container">
                         </div>
                       </div>
                     </div>
