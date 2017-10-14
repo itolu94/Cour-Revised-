@@ -10,7 +10,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const User = require("./models/user.js");
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 
 
 app.use(passport.initialize());
