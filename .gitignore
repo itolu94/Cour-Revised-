@@ -61,6 +61,8 @@ typings/
 # ignore Yelp API credentials 
 public/secrets.js
 
+.idea/
+
 # User-specific stuff:
 .idea/**/workspace.xml
 .idea/**/tasks.xml
