@@ -1,5 +1,10 @@
 import React, {Component} from 'react';
+import Calendar from 'rc-calendar';
 
+const calendarStyle = {
+    background: 'pink',
+    color: 'yellow'
+}
 
 export default class GoogleMapsSearchBar extends Component{
     constructor(){
@@ -16,6 +21,7 @@ export default class GoogleMapsSearchBar extends Component{
                         onChange={(e) => this.props.handleChange(e, "zipcode")}
                         value={this.props.zipcode}  
                         className="form-control" id="zip-code-inputGM" type="text" data-bind="value: location" />
+                        <Calendar style={calendarStyle}/>
                     </div>
                 </form>
                 <button onClick={() => this.props.yelp()}className="btn btn-default" id="add-infoGM" type="submit">Submit</button>
