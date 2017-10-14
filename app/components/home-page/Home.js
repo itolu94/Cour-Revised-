@@ -16,7 +16,7 @@ export default class HomePage extends Component{
 	      <img src="./assets/css/Images/CourIcon.svg" alt="cour icon" id="cour-icon"/>
           <h3 id="panel-h3">Dating for 
             <span>
-              <a type="button" onClick={this.hanldeClick} className="btn" id="today-btn" href="secondPage.html">Today</a>
+              <a type="button" onClick={this.hanldeClick} className="btn" id="today-btn" >Today</a>
             </span>
            </h3>
         </div>
