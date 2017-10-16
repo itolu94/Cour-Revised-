@@ -11,8 +11,8 @@ export default class SeatGeek extends Component {
             return this.props.seatGeekEvents.map((event, i) => {
                 return ( 
                     <div>
-                        <p> Artist {event.title}</p>
-                        <p> Venue {event.venue.name} </p>
+                        <p> Artist: {event.title}</p>
+                        <p> Venue: {event.venue.name} </p>
                         <a href={event.url} target='_blank'>Buy Tickets</a>
                     </div>
                 );

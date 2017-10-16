@@ -63,10 +63,11 @@ export default class GoingOutComponent extends Component {
     yelpSearch(){
       let activity = this.state.activity;
       let location = this.state.zipcode;
+      console.log(this.state.zipcode);
       yelp(location, activity, (result) =>{
         this.setState({
           businessInfo: result.data,
-        })
+        });
         this.googleMaps();
       });
         this.setState({

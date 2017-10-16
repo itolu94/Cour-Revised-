@@ -234,6 +234,12 @@ a {
     margin: 4rem auto 0;
 }
 
+.nav-inner{
+    background: transparent;
+    border: none;
+    color: pink;
+}
+
 .Calendar th,
 .Calendar td {
     padding: 1rem;
@@ -429,9 +435,7 @@ text {
     margin-top: 80px;
 }
 
-.search2{
-    margin-top: 25px;
-}
+
 
 .googleMapsAPI {
     font-size: 18px;

@@ -61,8 +61,7 @@ typings/
 # ignore Yelp API credentials 
 public/secrets.js
 
-.idea
 
-.idea/
-
-.Cour-Revised-.iml
+/Cour-Revised-.iml
+/.idea/
+/config/yelp-credentials.js

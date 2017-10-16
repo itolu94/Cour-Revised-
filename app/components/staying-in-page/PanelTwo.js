@@ -14,10 +14,10 @@ export default class PanelTwo extends Component{
                             <div className=""><img src="./assets/css/Images/DIYIcon.svg" alt="DIY icon" className="category-icon" /></div>
                             <h1 className="">DIY</h1>
                         </div>
-                        <div className="category  Movie-click">
-                            <div className=""><img src="./assets/css/Images/MovieIcon.svg" alt="Movie icon" className="category-icon" /></div>
-                            <h1 className="category ">Movie</h1>
-                        </div>
+                        {/*<div className="category  Movie-click">*/}
+                            {/*<div className=""><img src="./assets/css/Images/MovieIcon.svg" alt="Movie icon" className="category-icon" /></div>*/}
+                            {/*<h1 className="category ">Movie</h1>*/}
+                        {/*</div>*/}
                         <div className="category  Play-click">
                             <div className=" "><img src="./assets/css/Images/PlayIcon.svg" alt="play icon" className="category-icon" /></div>
                             <h1 className="">Play</h1>

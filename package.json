@@ -14,7 +14,6 @@
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
-    "rc-calendar": "^9.1.9",
     "react": "^15.6.1",
     "react-addons-css-transition-group": "^15.6.0",
     "react-calendar-pane": "0.0.30",
