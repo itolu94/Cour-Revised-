@@ -10,7 +10,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const User = require("./models/user.js");
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 
 
 app.use(passport.initialize());
@@ -31,7 +31,7 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 // 	console.log("Mongoose Error: " + error);
 // });
 
-require('./routes/api.js')(app);
+require('./controller/routes/api.js')(app);
 
 app.get('*', (req, resp) => {
     resp.sendFile(__dirname + path.join('/public/index.html'));

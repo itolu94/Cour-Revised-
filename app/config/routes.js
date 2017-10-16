@@ -7,11 +7,11 @@ import StayingInPage from '../components/staying-in-page/StayingInPage';
 import Layout from '../components/Layout';
 
 module.exports = (
-			<Route path='/' component={Layout} >
-                <Route path='/' component={Home} />
-                <Route path='/out-or-in' component={OutOrIn} />
-                <Route path='/going-out' component={GoingOut} />
-                <Route path='/staying-in' component={StayingInPage} />
-                <IndexRoute component={Home} />
-            </Route>
+    <Route path='/' component={Layout} >
+        <Route path='/' component={Home} />
+        <Route path='/out-or-in' component={OutOrIn} />
+        <Route path='/going-out' component={GoingOut} />
+        <Route path='/staying-in' component={StayingInPage} />
+        <IndexRoute component={Home} />
+    </Route>
 );

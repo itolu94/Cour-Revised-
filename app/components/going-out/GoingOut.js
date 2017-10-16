@@ -111,7 +111,8 @@ export default class GoingOutComponent extends Component {
       });
     }
     seatGeek(){
-      let URL = `https://api.seatgeek.com/2/events?&geoip=${this.state.zipcode}&sort=score.desc&type=${this.state.activity}&datetime_utc=${this.state.data}&client_id=NzIwMTk3MnwxNDkxMDAyMDQ0LjE2`
+      let URL = `https://api.seatgeek.com/2/events?&geoip=${this.state.zipcode}&sort=score.desc&type=${this.state.activity}&datetime_utc=${this.state.date}&client_id=NzIwMTk3MnwxNDkxMDAyMDQ0LjE2`
+     console.log(URL);
       axios.get(URL).then((response) => {
         if(response.data.events.lenght <= 0){
           this.setState({seatGeekEvents: []});
@@ -126,7 +127,7 @@ export default class GoingOutComponent extends Component {
     }
     handleChange(e, field){
       this.setState({
-        [field]: e.target.value
+        [field]: e
       });
     }
 

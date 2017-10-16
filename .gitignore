@@ -62,3 +62,7 @@ typings/
 public/secrets.js
 
 .idea
+
+.idea/
+
+.Cour-Revised-.iml

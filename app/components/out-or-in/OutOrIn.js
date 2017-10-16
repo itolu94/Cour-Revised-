@@ -10,7 +10,7 @@ export default class Main extends Component {
     render(){
         return(
         <div>
-            <div className='col-lg-12 collums'>
+            <div className='col-lg-12 collums out-or-in-pannel'>
               <StayingIn />
               <GoingOut />
             </div> 
