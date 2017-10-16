@@ -1,6 +1,10 @@
+const yelpCredentials = require('../../config/yelp-credentials');
+
+
 module.exports = (app) => {
-  const clientID = '3HkM4SoAWb0uxd_Kcf2HJA';
-  const clientSecret = 'p1x3DXq8dt692LCWXtVonwTMZchVsw8dY6UoUQG696HiEOJ6ZqsU8kQXM6uBdA9x';
+  const clientID = yelpCredentials.clientID;
+  const clientSecret = yelpCredentials.clientSecret;
+
   const yelp = require('yelp-fusion');
   let token;
   yelp.accessToken(clientID, clientSecret).then(response => {

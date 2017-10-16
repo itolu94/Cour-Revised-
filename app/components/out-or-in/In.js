@@ -10,7 +10,7 @@ export default class StayingIn extends Component{
     }
     render(){
         return(
-              <div className="col-lg-6 col-sm-12">
+              <div className="col-md-6 col-sm-12">
                 <div className="panel panel-default panel-going-out">
                   <div onClick={this.stayingInClick} className="panel-body out-or-in-pannel">
                     <img  className='home-and-city-icon' src="./assets/css/Images/HomeIcon.svg" alt="Home icon" />

@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import {hashHistory} from 'react-router';
+
 // import GoingOut from './Out';
 // import NavBar from './NavBar';
 // import StayingIn from './In';
@@ -7,6 +9,9 @@ import React, {Component} from 'react';
 export default class Layout extends Component {
     constructor() {
         super();
+    }
+    handleHome(){
+        hashHistory.push('/')
     }
     render(){
         return(
@@ -17,9 +22,8 @@ export default class Layout extends Component {
                     <div className="hidden-header">
                     <h1 id="going-out-head" className="cour-text"><img src="./assets/css/Images/CourIconOpt.svg" alt="cour icon" id="cour-icon-going-out"/>Cour</h1>
                     <ul className="nav nav-pills" id="nav-btns">
-                        <li role="presentation"><a href="#">FAQ</a></li>
-                        <li role="presentation"><a href="#">APIS</a></li>
-                        <li role="presentation"><a href="index.html">Home</a></li>
+                        { /*<li role="presentation"><a href="#">FAQ</a></li> */}
+                        <li role="presentation"><a onClick={() => this.handleHome()} >Home</a></li>
                     </ul>
                     </div>
                     <div className="rolk">a</div>

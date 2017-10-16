@@ -180,39 +180,39 @@ $(document).ready(function() {
 // }
 // seatGeeksAPI
 // $(document).on('click','#add-infoSG', function() {
-    $(document).on('click','#add-infoSGSOMEOTHERStuff', function() {
-    var typeSG =  'concert';
-    var date = $('#date-input').val().trim();
-    var zipcode = $('#zip-code-inputSG').val().trim();
-    var queryURL = 'https://api.seatgeek.com/2/events?&geoip=' + zipcode + '&sort=score.desc&type=' + typeSG + '&datetime_utc=' + date + '&client_id=NzIwMTk3MnwxNDkxMDAyMDQ0LjE2'
-    console.log(queryURL);
-    $.ajax({
-        method: "GET",
-        url: queryURL
-    }).done(function(response) {
-        $('#map').empty();
-        console.log(response);
-        if (response) {
-        for (var i = 0; response.events.length; i++) {
-            console.log(response.events[i].title);
-            $('#map').append("<p> Artist: " + response.events[i].title + '</p>');
-            $('#map').append("<p> Venue: " + response.events[i].venue.name + '</p>');
-            $('#map').append("<a href ='" + response.events[i].url + "' target= _blank>Buy Tickets</a>");
-            if (i === 5) {
-                break;
-            }
-        }
-    }
-    else {
-        $('#map').append("<p>No events taking place on that" + data + "</p>");
-        
-    }
-    });
-    $("#first-info-panel1").hide();
-    $(".googleMapsAPI").show();
-    $("#seatGeek-back-btn-container").show();
-    $("#back-btn-panel2").hide();
-});
+//     $(document).on('click','#add-infoSGSOMEOTHERStuff', function() {
+//     var typeSG =  'concert';
+//     var date = $('#date-input').val().trim();
+//     var zipcode = $('#zip-code-inputSG').val().trim();
+//     var queryURL = 'https://api.seatgeek.com/2/events?&geoip=' + zipcode + '&sort=score.desc&type=' + typeSG + '&datetime_utc=' + date + '&client_id=NzIwMTk3MnwxNDkxMDAyMDQ0LjE2'
+//     console.log(queryURL);
+//     $.ajax({
+//         method: "GET",
+//         url: queryURL
+//     }).done(function(response) {
+//         $('#map').empty();
+//         console.log(response);
+//         if (response) {
+//         for (var i = 0; response.events.length; i++) {
+//             console.log(response.events[i].title);
+//             $('#map').append("<p> Artist: " + response.events[i].title + '</p>');
+//             $('#map').append("<p> Venue: " + response.events[i].venue.name + '</p>');
+//             $('#map').append("<a href ='" + response.events[i].url + "' target= _blank>Buy Tickets</a>");
+//             if (i === 5) {
+//                 break;
+//             }
+//         }
+//     }
+//     else {
+//         $('#map').append("<p>No events taking place on that" + data + "</p>");
+//
+//     }
+//     });
+//     $("#first-info-panel1").hide();
+//     $(".googleMapsAPI").show();
+//     $("#seatGeek-back-btn-container").show();
+//     $("#back-btn-panel2").hide();
+// });
 
 
 
@@ -224,7 +224,7 @@ var bubbleAPI = $("<div class='bubbleAPI'>")
 var header = $("<h3> Double click a bubble! </h3>");
 var bubbleWrapper = $("<div class='bubble-wrapper'>")
 $('#app').on('click', '.Cooking-click', function() {
-    console.log('click was recognized!');
+    // console.log('click was recognized!');
     $('.panelfirst').hide();
     $('.panelsecond').fadeIn(3000);
     bubbleContainer.append(link)

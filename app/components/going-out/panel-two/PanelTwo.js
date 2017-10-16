@@ -20,6 +20,8 @@ export default class PanelTwo extends Component {
                     handleChange={this.props.handleChange}
                     seatGeek={this.props.seatGeek}
                     revert={this.props.revert}
+                    date={this.props.date}
+                    zipcode={this.props.zipcode}
                     />
                 )
             default:
