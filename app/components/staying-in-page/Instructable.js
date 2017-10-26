@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-
+import makeChart, {dessertData} from '../../../public/assets/js/instructableData/data.js';
 
 export default class Instructable extends Component{
 constructor(){
@@ -7,7 +7,8 @@ constructor(){
 }
 
 componentWillMount(){
-    makeChart({ categories: instructablesDataFood }, "categories", instructablesDataFood)
+    makeChart({categories: dessertData}, "categories", dessertData);
+
 }
  render(){
      return(
@@ -16,7 +17,7 @@ componentWillMount(){
             <div className="">
                 <div className="bubbleAPI">
                     <h3> Double click a bubble! </h3>
-                        <div class='bubble-wrapper'>    
+                        <div className='bubble-wrapper'>    
                         </div>
                 </div>
             </div>

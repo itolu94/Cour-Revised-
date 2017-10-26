@@ -1,4 +1,4 @@
-var instructablesDataCocktails = [{
+module.exports = instructablesDataCocktails = [{
     "name": "cocktails-and-mocktails",
     "category": "food",
     "instructables": [{

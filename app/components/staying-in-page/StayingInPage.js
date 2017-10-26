@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PanelOne from './PanelOne';
 import PanelTwo from './PanelTwo';
+import Instructable from './Instructable';
 
 
 export default class StayingInPage extends Component {
@@ -12,7 +13,7 @@ export default class StayingInPage extends Component {
             <div>
               <div className="row" id="going-out-content">
                 <div className="col-lg-12 colums">
-                    <PanelOne />
+                    <Instructable />
                     <PanelTwo />
                 </div>
               </div>

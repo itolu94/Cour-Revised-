@@ -1,4 +1,4 @@
-var instructablesDataDYS = [
+module.exports = instructablesDataDYS = [
     {
         "name":"technology",
         "channels":[

@@ -1,4 +1,4 @@
-var instructablesDataFood = [
+module.exports = YinstructablesDataFood = [
 
             {
                 "name":"bacon",

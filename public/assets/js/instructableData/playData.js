@@ -1,4 +1,4 @@
-var instructablesDataPlay = [
+module.exports = instructablesDataPlay = [
     {
         "name":"play",
         "channels":[

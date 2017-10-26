@@ -1,4 +1,4 @@
-var instructablesData = [
+module.exports = instructablesData = [
     {
         "name":"technology",
         "channels":[

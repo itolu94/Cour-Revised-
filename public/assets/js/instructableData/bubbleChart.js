@@ -1,5 +1,4 @@
 var makeChart = function(root, lookFor, back) {
-
     var diameter = 500;
     var color = d3.scale.category10();
 

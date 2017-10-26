@@ -1,4 +1,4 @@
-var instructablesDataDessert = [
+module.exports = instructablesDataDessert = [
 
     {
         "name": "dessert",
