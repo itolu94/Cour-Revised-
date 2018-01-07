@@ -1,5 +1,4 @@
 
-$(document).ready(function() {
     // typeGM is used for google Maps API
     //typeGM was added to click events for coffee, restaurants, museums
     //museums and bars. 
@@ -295,6 +294,4 @@ $('#app').on('click','.Play-click', function() {
     makeChart({ categories: instructablesDataPlay }, "categories", instructablesDataPlay);
 });
 
-
-});
 

@@ -1,5 +1,4 @@
 var makeChart = function(root, lookFor, back) {
-
     var diameter = 500;
     var color = d3.scale.category10();
 
@@ -30,7 +29,8 @@ var makeChart = function(root, lookFor, back) {
                                 .call(d3.behavior.zoom().translate([200,50]).scaleExtent([.8, 20]).scale(.8).on("zoom", zoom))
                               .append("g")
                               .attr("transform", "translate(200,50) scale(.8)")
-
+                              console.log(svg);
+                              console.log(svg.selectAll());
     var node = svg.selectAll(".node")
                 .data(bubble.nodes(root).filter(function(d) { 
                                                     return !d.children; 

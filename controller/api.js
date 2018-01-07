@@ -1,4 +1,4 @@
-const yelpCredentials = require('../../config/yelp-credentials');
+const yelpCredentials = require('../config/yelp-credentials');
 
 
 module.exports = (app) => {
@@ -19,10 +19,10 @@ module.exports = (app) => {
       term: activity,
       location: location,
       limit: 5
-    }).then(response => {
-      resp.json(response.jsonBody);
+    }).then(data => {
+      resp.json(data.jsonBody);
       }).catch(e => {
         console.log(e);
-      }); 
+      });
   });
 }

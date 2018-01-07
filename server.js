@@ -1,13 +1,8 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const mongoose = require("mongoose");
-const axios = require('axios');
-
 const passport = require('passport');
-const LocalStrategy = require('passport-local').Strategy;
 
-const User = require("./models/user.js");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -22,16 +17,8 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 
-// mongoose.Promise = Promise;
 
-// mongoose.connect("mongodb://localhost/cour");
-// var db = mongoose.connection;
-
-// db.on("error", function(error) {
-// 	console.log("Mongoose Error: " + error);
-// });
-
-require('./controller/routes/api.js')(app);
+require('./controller/api.js')(app);
 
 app.get('*', (req, resp) => {
     resp.sendFile(__dirname + path.join('/public/index.html'));
