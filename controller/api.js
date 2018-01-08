@@ -1,4 +1,4 @@
-const yelpCredentials = require('../../config/yelp-credentials');
+const yelpCredentials = require('../config/yelp-credentials');
 
 
 module.exports = (app) => {
